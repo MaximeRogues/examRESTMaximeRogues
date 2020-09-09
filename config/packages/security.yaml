@@ -36,7 +36,7 @@ security:
         api:
             pattern: ^/api
             stateless: true
-            anonymous: false
+            anonymous: true
             provider: app_user_provider
             guard:
                 authenticators:
@@ -47,3 +47,5 @@ security:
     access_control:
         - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/register, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/api/ravioles, roles: ROLE_USER }
+        - { path: ^/api, roles: IS_AUTHENTICATED_ANONYMOUSLY }
